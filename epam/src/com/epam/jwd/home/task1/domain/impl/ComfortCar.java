@@ -1,4 +1,7 @@
-package com.epam.jwd.home.task1;
+package com.epam.jwd.home.task1.domain.impl;
+
+import com.epam.jwd.home.task1.domain.Car;
+import com.epam.jwd.home.task1.domain.enums.CarBrand;
 
 public class ComfortCar extends Car {
 

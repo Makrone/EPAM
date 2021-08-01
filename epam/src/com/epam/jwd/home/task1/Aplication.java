@@ -2,6 +2,13 @@ package com.epam.jwd.home.task1;
 
 import java.util.List;
 
+import com.epam.jwd.home.task1.domain.Car;
+import com.epam.jwd.home.task1.domain.TaxPark;
+import com.epam.jwd.home.task1.domain.enums.CarBrand;
+import com.epam.jwd.home.task1.domain.impl.CargoCar;
+import com.epam.jwd.home.task1.domain.impl.ComfortCar;
+import com.epam.jwd.home.task1.domain.impl.SportCar;
+
 public class Aplication {
 
 	public static void main(String[] args) {

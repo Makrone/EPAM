@@ -1,4 +1,4 @@
-package com.epam.jwd.home.task1;
+package com.epam.jwd.home.task1.domain;
 
 import java.util.ArrayList;
 import java.util.Collections;
