@@ -3,11 +3,11 @@ package com.epam.jwd.home.task1;
 import java.util.List;
 
 import com.epam.jwd.home.task1.domain.Car;
-import com.epam.jwd.home.task1.domain.TaxPark;
-import com.epam.jwd.home.task1.domain.enums.CarBrand;
-import com.epam.jwd.home.task1.domain.impl.CargoCar;
-import com.epam.jwd.home.task1.domain.impl.ComfortCar;
-import com.epam.jwd.home.task1.domain.impl.SportCar;
+import com.epam.jwd.home.task1.domain.CargoCar;
+import com.epam.jwd.home.task1.domain.ComfortCar;
+import com.epam.jwd.home.task1.domain.SportCar;
+import com.epam.jwd.home.task1.logic.TaxPark;
+import com.epam.jwd.home.task1.type.CarBrand;
 
 public class Aplication {
 
@@ -43,6 +43,10 @@ public class Aplication {
 		for (Car car : filtredCars) {
 			System.out.println(car);
 		}
+		System.out.println();
+		System.out.println("Порядок машин после соритировки по стоимости: ");
+		park.sortByCost();
+		park.printCars();
 	}
 
 }

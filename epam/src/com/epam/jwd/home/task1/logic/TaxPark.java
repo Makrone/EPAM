@@ -1,19 +1,36 @@
-package com.epam.jwd.home.task1.domain;
+package com.epam.jwd.home.task1.logic;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
+import com.epam.jwd.home.task1.domain.Car;
+
 public class TaxPark {
 
-	private Comparator<Car> carFuelConsumptionComparator = new Comparator<Car>() {
+	public static final Comparator<Car> CAR_FUEL_CONSUMPTION_COMPORATOR = new Comparator<Car>() {
 
 		@Override
 		public int compare(Car o1, Car o2) {
 			if (o1.getFuelConsumption() > o2.getFuelConsumption()) {
 				return 1;
 			} else if (o1.getFuelConsumption() < o2.getFuelConsumption()) {
+				return -1;
+			} else {
+				return 0;
+			}
+		}
+
+	};
+	
+	public static final Comparator<Car> CAR_COST_COMPARATOR = new Comparator<Car>() {
+
+		@Override
+		public int compare(Car o1, Car o2) {
+			if (o1.getCost() > o2.getCost()) {
+				return 1;
+			} else if (o1.getCost() < o2.getCost()) {
 				return -1;
 			} else {
 				return 0;
@@ -65,7 +82,11 @@ public class TaxPark {
 	}
 
 	public void sortByFuelConsumption() {
-		Collections.sort(cars, carFuelConsumptionComparator);
+		Collections.sort(cars, CAR_FUEL_CONSUMPTION_COMPORATOR);
+	}
+	
+	public void sortByCost () { 
+		Collections.sort(cars,CAR_COST_COMPARATOR);
 	}
 
 	public List<Car> getCarsBySpeedRange(Double minSpeed, Double maxSpeed) {

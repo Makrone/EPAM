@@ -1,7 +1,6 @@
-package com.epam.jwd.home.task1.domain.impl;
+package com.epam.jwd.home.task1.domain;
 
-import com.epam.jwd.home.task1.domain.Car;
-import com.epam.jwd.home.task1.domain.enums.CarBrand;
+import com.epam.jwd.home.task1.type.CarBrand;
 
 public class SportCar extends Car {
 

@@ -1,6 +1,6 @@
 package com.epam.jwd.home.task1.domain;
 
-import com.epam.jwd.home.task1.domain.enums.CarBrand;
+import com.epam.jwd.home.task1.type.CarBrand;
 
 public class Car {
 

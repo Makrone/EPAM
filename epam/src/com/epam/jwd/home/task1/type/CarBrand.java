@@ -1,4 +1,4 @@
-package com.epam.jwd.home.task1.domain.enums;
+package com.epam.jwd.home.task1.type;
 
 public enum CarBrand {
 	
