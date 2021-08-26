@@ -1,33 +1,22 @@
 package com.epam.jwd.home.task2.domain;
 
-import java.util.ArrayList;
-import java.util.List;
+public class Sign implements TextPart {
 
-import com.epam.jwd.home.task2.parser.Parser;
-import com.epam.jwd.home.task2.parser.impl.TextParser;
+	private Character sign;
 
-public class Sign implements TextPart{
+	public Sign(Character sign) {
+		super();
+		this.sign = sign;
+	}
 
-		
-		private List <TextPart> innerParts = new ArrayList <>();
-		private static final  Parser parser = new TextParser();
-		
+	@Override
+	public void print() {
+		System.out.print(sign);
+	}
 
+	public Character getSign () { 
+		return sign;
+	}
+	
 
-		public Sign() {
-			super();
-		}
-
-		public Sign(String text) {
-			super();
-			this.innerParts = parser.parse(text);
-		}
-
-		@Override
-		public void print() {
-			
-			
-		}
-		
-		
 }

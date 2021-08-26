@@ -6,49 +6,50 @@ import java.util.List;
 
 import com.epam.jwd.home.task2.domain.Sign;
 import com.epam.jwd.home.task2.domain.TextPart;
+import com.epam.jwd.home.task2.domain.Whitespace;
+import com.epam.jwd.home.task2.domain.Word;
 import com.epam.jwd.home.task2.parser.Parser;
 
-public class SentenceParser implements Parser{
-	
-	
+public class SentenceParser implements Parser {
+
 	@Override
 	public List<TextPart> parse(String text) {
-		if(text == null) { 
+		if (text == null) {
 			return Collections.emptyList();
 		}
-		
-		String[] sentenceParts = text.split("\\s+");
+
 		List<TextPart> parts = new ArrayList<>();
-		for (String s : sentenceParts) {
-			int firstCharIndex = indexOfFirstLetter(s);
-            int lastCharIndex = indexOfLastLetter(s);
-            for (int i = 0; i < firstCharIndex; i++) {
+		String[] sentenceParts = text.split("\\s+");
+		for (int i = 0; i < sentenceParts.length; i++) {
+			String s = sentenceParts[i];
+			if (s.length() > 0) {
 
-			
-            }
+				int counter = 0;
+				int startIndex = 0;
+				while (counter < s.length()) {
+					if (!Character.isLetterOrDigit(s.charAt(counter))) {
+						if (startIndex < counter) {
+							Word word = new Word(s.substring(startIndex, counter));
+							parts.add(word);
+						}
+						startIndex = counter + 1;
+
+						Sign sign = new Sign(s.charAt(counter));
+						parts.add(sign);
+					}
+					counter++;
+				}
+
+				if (startIndex < counter) {
+					Word word = new Word(s.substring(startIndex, counter));
+					parts.add(word);
+				}
+			}
+			if (i < sentenceParts.length - 1) {
+				parts.add(new Whitespace());
+			}
 		}
-		return null;
+		return parts;
 	}
-	
-	private static int indexOfFirstLetter(String sentencePart) {
-        for (int i = 0; i < sentencePart.length(); i++) {
-            if (Character.isLetterOrDigit(sentencePart.charAt(i))) {
-                return i;
-            }
-        }
-        return 0;
-    }
-
-    private static int indexOfLastLetter(String sentencePart) {
-        for (int i = sentencePart.length() - 1; i >= 0; i--) {
-            if (Character.isLetterOrDigit(sentencePart.charAt(i))) {
-                return i;
-            }
-        }
-        return sentencePart.length() - 1;
-    }
-	
-	
-	
 
 }

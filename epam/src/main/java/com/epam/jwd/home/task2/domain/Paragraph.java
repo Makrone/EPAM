@@ -23,4 +23,13 @@ public class Paragraph implements TextPart {
 		}
 
 	}
+
+	public void removeWords(Integer size, Character letter) {
+		if (parts != null) {
+			parts.stream().forEach(p -> {
+				((Sentence) p).removeWords(size, letter);
+			});
+		}
+
+	}
 }
