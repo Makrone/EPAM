@@ -2,6 +2,7 @@ package com.epam.jwd.home.task3;
 
 import org.apache.log4j.Logger;
 
+import com.epam.jwd.home.task3.domain.Client;
 import com.epam.jwd.home.task3.util.NameUtil;
 
 public class ClientGenerator implements Runnable {
@@ -20,11 +21,11 @@ public class ClientGenerator implements Runnable {
 		for (;;) {
 			log.info("Дзынь-Дзынь-Дзынь");
 			try {
-				Thread.sleep(100);
+				Thread.sleep(300);
 			} catch (InterruptedException e) {
 				log.error(e.getStackTrace());
 			}
-			new Thread(new Client(callCenter, NameUtil.getRandomName())).start();
+			new Thread(new Client(callCenter, NameUtil.getRandomManName())).start();
 		}
 
 	}
